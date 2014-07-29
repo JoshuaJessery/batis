@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.batis</groupId>
   <artifactId>batis</artifactId>
@@ -9,9 +9,13 @@
   <url>http://maven.apache.org</url>
   
   <properties>
-  	<spring.mybatis.version>1.2.2</spring.mybatis.version>
+  	<spring.mybatis.version>1.0.2</spring.mybatis.version>
+  	<mybatis.version>3.2.2</mybatis.version>
   	<spring.version>4.0.6.RELEASE</spring.version>
+  	<cxf.version>3.0.1</cxf.version>
+  	<jackson.jaxrs>1.9.13</jackson.jaxrs>
   	<common.jdbc.version>1.4</common.jdbc.version>
+  	<mysql.version>5.1.30</mysql.version>
   </properties>
   
   <dependencies>
@@ -42,11 +46,43 @@
 		<artifactId>commons-dbcp</artifactId>
 		<version>${common.jdbc.version}</version>
 	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-web</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	<!-- cxf -->
+	<dependency>
+		<groupId>org.apache.cxf</groupId>
+		<artifactId>cxf-rt-transports-http</artifactId>
+		<version>${cxf.version}</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.apache.cxf</groupId>
+	  <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+	  <version>${cxf.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-jaxrs</artifactId>
+		<version>${jackson.jaxrs}</version>
+	</dependency>
     <!-- mybatis -->
     <dependency>
 		<groupId>org.mybatis</groupId>
 		<artifactId>mybatis-spring</artifactId>
 		<version>${spring.mybatis.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis</artifactId>
+		<version>${mybatis.version}</version>
+	</dependency>
+	<!-- mysql -->
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>${mysql.version}</version>
 	</dependency>
   </dependencies>
   <build>

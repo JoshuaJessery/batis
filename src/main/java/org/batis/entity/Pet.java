@@ -2,12 +2,15 @@ package org.batis.entity;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * 宠物类
  * @author joshua
  * @date 2014-7-23
  * @version
  */
+@XmlRootElement
 public class Pet implements Serializable{
 	/**
 	 * 
