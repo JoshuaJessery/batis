@@ -21,7 +21,7 @@ public class PetServiceImpl implements PetService{
 	private PetsMapper petRepository;
 	
 	public Pet getPetById(Long id) {
-		return petRepository.findPetById(id);
+		return petRepository.getPetById(id);
 	}
 	
 	@Transactional(propagation=Propagation.REQUIRED,rollbackFor=Throwable.class)

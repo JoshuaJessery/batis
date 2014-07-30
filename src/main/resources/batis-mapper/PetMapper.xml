@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.batis.mapper.PetsMapper">
-	<select id="findPetById" parameterType="long" resultType="org.batis.entity.Pet">
+	<select id="findPetById" parameterType="long" resultType="Pet">
 		select * from t_pet where id = #{id}
 	</select>
 	
@@ -10,7 +10,7 @@
   		values (#{age},#{name},#{sex},#{aliases})
 	</insert>
 	
-	<insert id="addPetByPojo" parameterType="org.batis.entity.Pet">
+	<insert id="addPetByPojo" parameterType="Pet">
 		insert into t_pet (age,name,sex,aliases)
   		values (#{age},#{name},#{sex},#{aliases})
 	</insert>

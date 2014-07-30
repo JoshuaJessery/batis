@@ -1,6 +1,7 @@
 package org.batis.mapper;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.batis.entity.Pet;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +13,14 @@ public interface PetsMapper {
 	 * @return
 	 */
 	Pet findPetById(@Param("id") Long id);
+	
+	/**
+	 * 利用注解的方式进行查询
+	 * @param id
+	 * @return
+	 */
+	@Select("SELECT * from t_pet where id=#{id}")
+	Pet getPetById(long id);
 	
 	/**
 	 * 插入 Pet
