@@ -21,4 +21,10 @@ public class PetServiceImpl implements PetService{
 	public Pet getPetById(Long id) {
 		return petRepository.findPetById(id);
 	}
+	
+	public Pet  addPet(Pet pet) {
+		/*long i = petRepository.addPet(pet.getAge(),pet.getName(),pet.getSex(),pet.getAliases());*/
+		long i = petRepository.addPetByPojo(pet);
+		return petRepository.findPetById(i);
+	}
 }

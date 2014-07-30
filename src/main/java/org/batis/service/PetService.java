@@ -9,4 +9,11 @@ public interface PetService {
 	 * @return
 	 */
 	Pet getPetById(Long id);
+	
+	/**
+	 * 插入 Pet
+	 * @param pet
+	 * @return
+	 */
+	Pet  addPet(Pet pet);
 }

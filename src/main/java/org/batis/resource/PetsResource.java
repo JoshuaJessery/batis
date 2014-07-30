@@ -11,12 +11,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.batis.entity.Pet;
-import org.batis.serviceImpl.PetServiceImpl;
+import org.batis.service.PetService;
 
 public class PetsResource {
 
 	@Resource
-	PetServiceImpl petServiceImpl;
+	PetService petService;
 	
 	@GET
     @Produces(value={MediaType.APPLICATION_JSON})
@@ -31,6 +31,18 @@ public class PetsResource {
 	@Produces(value={MediaType.APPLICATION_XML})
 	@Path("/pet/{id}")
 	public Pet petResource(@PathParam("id") Long id) {
-		return petServiceImpl.getPetById(1l);
+		return petService.getPetById(id);
+	}
+	
+	@GET
+	@Produces(value={MediaType.APPLICATION_XML})
+	@Path("/pet/add")
+	public Pet addPetResource() {
+		Pet pet = new Pet();
+		pet.setAge(3);
+		pet.setAliases("xh");
+		pet.setName("hh");
+		pet.setSex("男");
+		return petService.addPet(pet);
 	}
 }

@@ -11,4 +11,14 @@
 	<select id="findPetById" parameterType="long" resultType="org.batis.entity.Pet">
 		select * from t_pet where id = #{id}
 	</select>
+	
+	<insert id="addPet" useGeneratedKeys="true" keyProperty="id">
+		insert into t_pet (age,name,sex,aliases)
+  		values (#{age},#{name},#{sex},#{aliases})
+	</insert>
+	
+	<insert id="addPetByPojo" parameterType="org.batis.entity.Pet">
+		insert into t_pet (age,name,sex,aliases)
+  		values (#{age},#{name},#{sex},#{aliases})
+	</insert>
 </mapper>
