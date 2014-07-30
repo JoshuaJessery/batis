@@ -8,11 +8,6 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
        
-    <!-- <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-    	<property name="location">
-    		<value>classpath:/source/source.properties</value>
-    	</property>
-    </bean>  -->
     <!-- mybatis数据库连接池 -->  
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
     	<property name="driverClassName" value="${jdbc.driverClassName}"/>
@@ -20,6 +15,7 @@
         <property name="username" value="${jdbc.user}"/>
         <property name="password" value="${jdbc.password}"/>
 	</bean>
+	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!--configLocation属性指定mybatis的核心配置文件 -->

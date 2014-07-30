@@ -33,5 +33,4 @@
 	</jaxrs:server>
 	
 	<import resource="./db-resource.xml"/> 
-	<import resource="./mybatis-resource.xml"/> 
 </beans>

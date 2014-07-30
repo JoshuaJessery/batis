@@ -19,6 +19,6 @@ public class PetServiceImpl implements PetService{
 	private PetsMapper petRepository;
 	
 	public Pet getPetById(Long id) {
-		return petRepository.findById(id);
+		return petRepository.findPetById(id);
 	}
 }

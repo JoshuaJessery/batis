@@ -24,9 +24,6 @@ public class PetsResource {
 	public List<Pet> petsResources() {
 
 		List<Pet> list = new ArrayList<Pet>();
-		for(int i=1; i < 5; i++) {
-			list.add(createPet(Long.valueOf(i+1)));
-		}
 		return list;
 	}
 	
@@ -35,15 +32,5 @@ public class PetsResource {
 	@Path("/pet/{id}")
 	public Pet petResource(@PathParam("id") Long id) {
 		return petServiceImpl.getPetById(1l);
-	}
-	
-	public Pet createPet(long id) {
-		Pet pet = new Pet();
-		pet.setId(id);
-		pet.setAge(Integer.valueOf((id+1)+""));
-		pet.setAliases("xiaob"+id);
-		pet.setName("xb"+id);
-		pet.setSex("1");
-		return pet;
 	}
 }

@@ -8,7 +8,7 @@
 		<result column="aliases" property="aliases" jdbcType="VARCHAR"/>
 		<result column="age" property="age" jdbcType="INTEGER"/>
 	</resultMap> -->
-	<select id="findById" parameterType="long" resultType="org.batis.entity.Pet">
+	<select id="findPetById" parameterType="long" resultType="org.batis.entity.Pet">
 		select * from t_pet where id = #{id}
 	</select>
 </mapper>
