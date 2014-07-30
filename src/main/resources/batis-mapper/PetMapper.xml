@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.batis.mapper.PetsMapper">
-	<!-- <resultMap type="org.batis.entity.Pet" id="PetResultMap" >
-		<id column="id" property="id" jdbcType="BLOB"/>
-		<result column="name" property="name" jdbcType="VARCHAR"/>
-		<result column="sex" property="sex" jdbcType="VARCHAR"/>
-		<result column="aliases" property="aliases" jdbcType="VARCHAR"/>
-		<result column="age" property="age" jdbcType="INTEGER"/>
-	</resultMap> -->
 	<select id="findPetById" parameterType="long" resultType="org.batis.entity.Pet">
 		select * from t_pet where id = #{id}
 	</select>
@@ -21,4 +14,8 @@
 		insert into t_pet (age,name,sex,aliases)
   		values (#{age},#{name},#{sex},#{aliases})
 	</insert>
+	
+	<update id="updatePet">
+		update t_pet set age=#{age},#{name},#{sex},#{aliases}
+	</update>
 </mapper>

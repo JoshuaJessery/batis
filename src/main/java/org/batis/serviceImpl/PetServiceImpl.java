@@ -6,6 +6,8 @@ import org.batis.entity.Pet;
 import org.batis.mapper.PetsMapper;
 import org.batis.service.PetService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 /**
  * 
  * @author joshua
@@ -22,8 +24,8 @@ public class PetServiceImpl implements PetService{
 		return petRepository.findPetById(id);
 	}
 	
-	public Pet  addPet(Pet pet) {
-		/*long i = petRepository.addPet(pet.getAge(),pet.getName(),pet.getSex(),pet.getAliases());*/
+	@Transactional(propagation=Propagation.REQUIRED,rollbackFor=Throwable.class)
+	public Pet addPet(Pet pet) {
 		long i = petRepository.addPetByPojo(pet);
 		return petRepository.findPetById(i);
 	}

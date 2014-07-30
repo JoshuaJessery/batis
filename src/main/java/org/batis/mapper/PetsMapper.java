@@ -26,4 +26,11 @@ public interface PetsMapper {
 	 * @return
 	 */
 	long addPetByPojo(Pet pet);
+	
+	/**
+	 * 更新Pet
+	 * @param pet
+	 * @return
+	 */
+	long updatePet(Pet pet);
 }

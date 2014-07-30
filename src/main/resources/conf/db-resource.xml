@@ -8,6 +8,9 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
        
+    <!-- 需要引入tx的命名空间 -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+    
     <!-- mybatis数据库连接池 -->  
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
     	<property name="driverClassName" value="${jdbc.driverClassName}"/>
@@ -24,6 +27,10 @@
 		<property name="mapperLocations" value="classpath:/batis-mapper/*Mapper.xml" />
 	</bean>
 	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	  <property name="dataSource" ref="dataSource" />
+	</bean>
+
 	<bean id="petMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="org.batis.mapper.PetsMapper" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
