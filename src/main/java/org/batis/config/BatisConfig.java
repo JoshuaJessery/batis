@@ -24,6 +24,23 @@ public class BatisConfig {
 	}
 	
 	/**
+	 * 设定返回的视图
+	 * @return
+	 */
+	/*@Bean
+	public RequestDispatcherProvider dispatchProvider() {
+		RequestDispatcherProvider dispatchProvider = new RequestDispatcherProvider();
+		Map<String, String> classResource = Collections.emptyMap();
+		Map<String, String> beanNames = Collections.emptyMap();
+		classResource.put("org.batis.resource.PetsResource", "/pet_list.jsp");
+		dispatchProvider.setClassResources(classResource);
+		
+		beanNames.put("petsResource", "petsResource");
+		dispatchProvider.setBeanNames(beanNames);
+		dispatchProvider.setBeanName("petsResource");
+		return dispatchProvider;
+	}*/
+	/**
 	 * 宠物API
 	 * @return
 	 */

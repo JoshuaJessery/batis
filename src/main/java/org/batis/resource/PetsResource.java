@@ -1,5 +1,7 @@
 package org.batis.resource;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.batis.entity.Pet;
 import org.batis.service.PetService;
@@ -44,5 +47,17 @@ public class PetsResource {
 		pet.setName("hh");
 		pet.setSex("男");
 		return petService.addPet(pet);
+	}
+	
+	@GET
+	@Produces(value={MediaType.TEXT_HTML})
+	@Path("/petsl")
+	public Response petView() {
+		try {
+			return Response.created(new URI("./pet_list.jsp")).build();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }
