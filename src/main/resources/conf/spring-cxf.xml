@@ -29,19 +29,9 @@
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
 	        <ref bean="jacksonJsonProvider"/>
+	        <ref bean="petViewDispatchProvider"/>
 	    </jaxrs:providers>
 	</jaxrs:server>
 	
-	<jaxrs:server id="petsView" address="/">
-		<jaxrs:serviceBeans>
-			<bean class="org.batis.resource.ViewsResources"/>
-		</jaxrs:serviceBeans>
-		<jaxrs:providers>
-	        <ref bean="dispatchProvider"/>
-	    </jaxrs:providers>
-	</jaxrs:server>
-	<bean id="dispatchProvider" class="org.apache.cxf.jaxrs.provider.RequestDispatcherProvider">
-	      <property name="resourcePath" value="/pet_list.jsp"/>
-	</bean>
 	<import resource="./db-resource.xml"/> 
 </beans>

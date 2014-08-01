@@ -1,7 +1,5 @@
 package org.batis.resource;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,11 +9,17 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import org.batis.entity.Pet;
 import org.batis.service.PetService;
+import org.batis.util.RequestResponseContext;
 
+/**
+ * 宠物资源API
+ * @author joshua
+ * @date 2014-8-1
+ * @version
+ */
 public class PetsResource {
 
 	@Resource
@@ -48,16 +52,17 @@ public class PetsResource {
 		pet.setSex("男");
 		return petService.addPet(pet);
 	}
-	
 	@GET
 	@Produces(value={MediaType.TEXT_HTML})
-	@Path("/petsl")
-	public Response petView() {
-		try {
-			return Response.created(new URI("./pet_list.jsp")).build();
-		} catch (URISyntaxException e) {
-			e.printStackTrace();
-			return null;
-		}
+	@Path("/p")
+	public String aa() {
+		Pet pet = new Pet();
+		pet.setAge(3);
+		pet.setAliases("xh");
+		pet.setName("hh");
+		pet.setSex("男");
+		RequestResponseContext.getRequest().setAttribute("pet", pet);
+		RequestResponseContext.getRequest().setAttribute("name", "haha");
+		return "value1";
 	}
 }

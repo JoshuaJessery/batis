@@ -16,6 +16,8 @@
   	<jackson.jaxrs>1.9.13</jackson.jaxrs>
   	<common.jdbc.version>1.4</common.jdbc.version>
   	<mysql.version>5.1.30</mysql.version>
+  	<jstl.version>1.2</jstl.version>
+  	<servlet.api.version>3.0-alpha-1</servlet.api.version>
   </properties>
   
   <dependencies>
@@ -77,6 +79,18 @@
 		<groupId>org.mybatis</groupId>
 		<artifactId>mybatis</artifactId>
 		<version>${mybatis.version}</version>
+	</dependency>
+	<!-- jstl -->
+	<dependency>
+	<groupId>jstl</groupId>
+		<artifactId>jstl</artifactId>
+		<version>${jstl.version}</version>
+	</dependency>
+	<!-- servlet -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>servlet-api</artifactId>
+		<version>${servlet.api.version}</version>
 	</dependency>
 	<!-- mysql -->
 	<dependency>
