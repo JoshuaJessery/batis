@@ -1,0 +1,32 @@
+{
+  "name": "batis",
+  "version": "0.0.1",
+  "description": "grunt Integration into batis",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "^0.4.5"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "joshua",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JoshuaJessery/batis"
+  },
+  "keywords": [
+    "batis",
+    "grunt"
+  ],
+  "bugs": {
+    "url": "https://github.com/JoshuaJessery/batis/issues"
+  },
+  "homepage": "https://github.com/JoshuaJessery/batis"
+}
