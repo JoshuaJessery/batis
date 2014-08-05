@@ -11,5 +11,8 @@
     </settings>
     <typeAliases>
 		<typeAlias type="org.batis.entity.Pet" alias="Pet"/>
+		<typeAlias type="org.batis.entity.CategoryResources" alias="categoryResources"/>
+		<typeAlias type="org.batis.entity.ImgsResources" alias="imgsResources"/>
+		<typeAlias type="org.batis.entity.User" alias="user"/>
 	</typeAliases>
 </configuration>    

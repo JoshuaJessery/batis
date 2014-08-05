@@ -22,6 +22,8 @@
     <context:component-scan base-package="org.batis.config,org.batis.serviceImpl,org.batis.mapper"/>
     <!-- 加载properties 文件 -->
     <context:property-placeholder location="classpath*:/source/source.properties"/>
+    <!-- 第三方评论系统API -->
+    <context:property-placeholder location="classpath*:/source/comment_api.properties"/>
     
 	<jaxrs:server id="petsResources" address="/">
 		<jaxrs:serviceBeans>
