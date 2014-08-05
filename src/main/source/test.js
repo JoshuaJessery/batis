@@ -3,6 +3,7 @@ function test() {
 	a = 1;
 	b = 'str';
 	c=3.0;
+	d = a + c;
 	console.log("aaaa"+d);
 }
 
