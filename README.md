@@ -14,3 +14,4 @@ concat: JS文件合并,合理减少请求数<br>
 cssmin: CSS文件合并,合理减少请求数<br>
 Uglyfy: 压缩文件,减小文件尺寸,提升加载速度<br>
 QUnit: 单元测试,提高项目的可维护性<br>
+watch: 实时监控资源文件(source)的变化,然后执行task数组。把文件生成到目标文件夹下(dest)
