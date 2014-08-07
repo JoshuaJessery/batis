@@ -21,7 +21,7 @@ import org.batis.util.RequestResponseContext;
  * @version
  */
 public class PetsResource {
-
+	
 	@Resource
 	PetService petService;
 	
