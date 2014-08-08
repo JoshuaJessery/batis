@@ -20,6 +20,8 @@
   	<servlet.api.version>3.0-alpha-1</servlet.api.version>
   	<log4j.version>2.0.1</log4j.version>
   	<log4j.web.version>2.0</log4j.web.version>
+  	<spring.social.version>1.1.0.RELEASE</spring.social.version>
+  	<spring.security.version>3.2.4.RELEASE</spring.security.version>
   </properties>
   
   <dependencies>
@@ -115,6 +117,33 @@
 		<groupId>org.apache.logging.log4j</groupId>
 		<artifactId>log4j-web</artifactId>
 		<version>${log4j.web.version}</version>
+	</dependency>
+	<!-- spring social -->
+	<dependency>
+	  <groupId>org.springframework.social</groupId>
+	  <artifactId>spring-social-web</artifactId>
+	  <version>${spring.social.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.social</groupId>
+		<artifactId>spring-social-core</artifactId>
+		<version>${spring.social.version}</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.springframework.social</groupId>
+	  <artifactId>spring-social-config</artifactId>
+	  <version>${spring.social.version}</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.springframework.social</groupId>
+	  <artifactId>spring-social-facebook</artifactId>
+	  <version>${spring.social.version}</version>
+	</dependency>
+	<!-- spring security -->
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-crypto</artifactId>
+		<version>${spring.security.version}</version>
 	</dependency>
   </dependencies>
   <build>

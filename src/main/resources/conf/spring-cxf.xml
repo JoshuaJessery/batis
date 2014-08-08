@@ -23,7 +23,7 @@
     <!-- 加载properties 文件 -->
     <context:property-placeholder location="classpath*:/source/source.properties"/>
     <!-- 第三方评论系统API -->
-    <context:property-placeholder location="classpath*:/source/comment_api.properties"/>
+    <context:property-placeholder location="classpath*:/source/social_api.properties"/>
     <!-- <context:property-placeholder location="classpath*:/source/log4j.properties"/> -->
     
 	<jaxrs:server id="petsResources" address="/">
