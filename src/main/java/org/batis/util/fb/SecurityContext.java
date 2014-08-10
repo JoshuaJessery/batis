@@ -8,11 +8,10 @@ public final class SecurityContext {
 
 	public static User getCurrentUser() {
 		User user = currentUser.get();
-		user = new User();
-		user.setId(1l);
-		/*if (user == null) {
-			throw new IllegalStateException("No user is currently signed in");
-		}*/
+		if (user == null) {
+			return new User(1l);
+			//throw new IllegalStateException("No user is currently signed in");
+		}
 		return user;
 	}
 

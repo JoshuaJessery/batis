@@ -6,12 +6,15 @@ import javax.sql.DataSource;
 import org.apache.cxf.jaxrs.provider.RequestDispatcherProvider;
 import org.batis.entity.User;
 import org.batis.resource.PetsResource;
+import org.batis.util.UserInterceptor;
 import org.batis.util.fb.FBConnectFactory;
 import org.batis.util.fb.FBSimpleConnectionSignUp;
 import org.batis.util.fb.SecurityContext;
 import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.core.env.Environment;
 import org.springframework.security.crypto.encrypt.Encryptors;
 import org.springframework.social.connect.ConnectionFactoryLocator;
@@ -21,6 +24,7 @@ import org.springframework.social.connect.jdbc.JdbcUsersConnectionRepository;
 import org.springframework.social.connect.support.ConnectionFactoryRegistry;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.connect.FacebookConnectionFactory;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 
 /**
  * 配置文件
@@ -36,6 +40,10 @@ public class BatisConfig {
 	
 	@Inject
 	private DataSource dataSource;
+	
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(new UserInterceptor(usersConnectionRepository()));
+	}
 	
 	/**
 	 * 返回json(注:bean的名字是根据方法名生成的)
@@ -78,8 +86,10 @@ public class BatisConfig {
 	@Bean
 	public ConnectionFactoryLocator connectionFactoryLocator() {
 	    ConnectionFactoryRegistry registry = new ConnectionFactoryRegistry();
-	    registry.addConnectionFactory(new FacebookConnectionFactory("315997611908699",
-	        "b82fe20b01317e7ff21106bfe789239d"));
+	    FacebookConnectionFactory facebookConnectionFactory = new FacebookConnectionFactory("315997611908699",
+		        "b82fe20b01317e7ff21106bfe789239d");
+	    //facebookConnectionFactory.getOAuthOperations();
+	    registry.addConnectionFactory(facebookConnectionFactory);
 	    return registry;
 	}
 	
@@ -87,7 +97,7 @@ public class BatisConfig {
 	public UsersConnectionRepository usersConnectionRepository() {
 	    JdbcUsersConnectionRepository repository = new JdbcUsersConnectionRepository(dataSource, 
 	        connectionFactoryLocator(), Encryptors.noOpText());
-	    repository.setTablePrefix("t_social");
+	    repository.setTablePrefix("t_");
 	    repository.setConnectionSignUp(new FBSimpleConnectionSignUp());
 	    return repository;
 	}
@@ -100,7 +110,7 @@ public class BatisConfig {
 	}
 	
 	@Bean
-	/*@Scope(value="request", proxyMode=ScopedProxyMode.INTERFACES)   */
+	/*@Scope(value="request", proxyMode=ScopedProxyMode.INTERFACES)  */ 
 	public Facebook facebook() {
 	    return connectionRepository().getPrimaryConnection(Facebook.class).getApi();
 	}

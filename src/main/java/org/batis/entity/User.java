@@ -31,6 +31,12 @@ public class User {
 	 */
 	private String contact;
 	
+	public User(){}
+	
+	public User(long id) {
+		this.id = id;
+	}
+	
 	public long getId() {
 		return id;
 	}
